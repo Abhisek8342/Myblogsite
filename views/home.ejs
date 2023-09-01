@@ -1,0 +1,15 @@
+<%- include("partial/header"); -%>
+
+<h1>Home</h1>
+
+<p><%= homeContent %></p>
+
+
+<% posts.forEach(function(post){ %>
+    <h1><%= post.title %></h1>
+ <p><%= post.content.substring(0,100) + " ..."%> <a href="/post/<%= post._id %>">Read More...</a> &nbsp; &nbsp;
+    <form action="/delete" method="post">
+    <button value="<%= post._id %>" name="dele" id="btns">delete post</button> </form></p> 
+<%});%>
+
+<%- include("partial/footer"); -%>
